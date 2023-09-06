@@ -1,13 +1,14 @@
 {
-  "name": "Social-Network-API-Challenge",
-  "version": "1.0.0",
-  "description": "Reverse engineer developer activity for CRUD methods in Mongoose",
+  "name": "28-Stu_Mini-Project",
+  "version": "1.0.1",
+  "description": "Mongoose back-end project - Main",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "seed": "node utils/seed"
+    "seed": "node utils/seed",
+    "heroku-postbuild": "node utils/seed.js"
   },
   "dependencies": {
     "express": "^4.17.1",
