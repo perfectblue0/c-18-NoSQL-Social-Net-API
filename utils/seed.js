@@ -16,11 +16,23 @@ connection.once('open', async () => {
   const users = [
     {
       username: "Leila",
-      email: "newmail@mail.com"
+      email: "leilamail@mail.com"
     },
     {
       username: "Lola",
-      email: "othermail@mail.com"
+      email: "lolamail@mail.com"
+    },
+    {
+      username: "Gregorio",
+      email: "gregmail@mail.com"
+    },
+    {
+      username: "Lucas",
+      email: "lucasmail@mail.com"
+    },
+    {
+      username: "Ale",
+      email: "aleale@mail.com"
     }
   ];
 
