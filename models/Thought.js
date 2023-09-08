@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
+const formatDate = require('../utils/dateFormat.js');
 
 // Schema to create a thought model
 const thoughtSchema = new Schema(
@@ -13,6 +14,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: (date) => formatDate(date)
     },
     username: {
       type: String,
@@ -23,6 +25,7 @@ const thoughtSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
+      getters: true,
     },
     id: false,
   }
