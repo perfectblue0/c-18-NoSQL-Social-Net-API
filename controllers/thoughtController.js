@@ -29,7 +29,7 @@ module.exports = {
           { new: true }
         );
       }
-      res.json("Thought Created");
+      res.json({ message: "Thought Created" });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -48,7 +48,7 @@ module.exports = {
           { new: true }
         );
       }
-      res.json("Thought Deleted");
+      res.json({ message: "Thought Deleted" });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -63,9 +63,9 @@ module.exports = {
         { new: true }
       );
       if (!updatedThought) {
-        return res.status(404).json("Thought not found");
+        return res.status(404).json({ message: "Thought not found" });
       }
-      res.json("Thought updated");
+      res.json({ message: "Thought updated" });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -79,23 +79,24 @@ module.exports = {
         { $push: { reactions: req.body } },
         { new: true, runValidators: true }
       );
-      res.status(200).json("Reaction created");
+      res.status(200).json({ message: "Reaction created" });
     } catch (err) {
       res.status(500).json(err);
     }
   },
+
   // Delete a reaction
   async deleteReaction(req, res) {
     try {
-      const deletedRxn = await Thought.findOneAndUpdate(
+      const updatedThought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
         { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { new: true }
       );
-      if (!deletedRxn) {
-        return res.status(404).json("Thought not found");
+      if (!updatedThought) {
+        return res.status(404).json({ message: "Thought not found" });
       }
-      res.status(200).json("Reaction has been deleted");
+      res.status(200).json({ message: "Reaction has been deleted" });
     } catch (err) {
       res.status(500).json(err);
     }

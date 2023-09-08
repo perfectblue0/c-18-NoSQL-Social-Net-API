@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongoose').Types;
 const { User } = require('../models');
 const { create } = require('../models/User');
 
@@ -42,7 +41,7 @@ module.exports = {
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
-  // Delete a student and remove them from the course
+  // Delete a user
   deleteUser(req, res) {
     User.findOneAndRemove({ _id: req.params.userId })
     .then((user) => res.json(user))
